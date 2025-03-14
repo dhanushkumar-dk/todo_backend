@@ -4,7 +4,15 @@ const cors = require("cors");
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+
+app.use(
+  cors({
+    origin: "https://dhanushkumar-dk.github.io", // Allow requests from your frontend
+    methods: ["GET", "POST", "DELETE"],
+    allowedHeaders: ["Content-Type"],
+  })
+);
+
 
 const MONGO_URI = process.env.MONGO_URI;
 
